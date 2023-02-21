@@ -61,6 +61,12 @@ section {
     background-color: black;
     flex-direction: column;
     opacity: 0;
+    span {
+      h4 {
+        text-transform: uppercase;
+        font-size: 40px;
+      }
+    }
     h4 {
       span {
         color: #7bacff;
