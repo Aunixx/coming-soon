@@ -98,6 +98,7 @@ section .text-wrapper p {
 }
 .bar {
   position: absolute;
+  cursor: grab;
   left: 220px;
   height: 70%;
   width: 25px;
@@ -145,4 +146,58 @@ section .text-wrapper p {
   align-items: center;
   gap: 18px;
   justify-content: center;
+}
+
+.mouse {
+  width: 40px;
+  height: 40px;
+  transform-origin: center bottom;
+  animation-name: swinging;
+  animation-duration: 1.2s;
+  animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  animation-delay: 0s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  position: absolute;
+  left: 260px;
+  top: 50%;
+  z-index: 100;
+  opacity: 0;
+}
+
+.mouse-click,
+.mouse-large-click,
+.mouse-small-click {
+  opacity: 0;
+  transform-origin: center center;
+  animation-name: click;
+  animation-duration: 1.2s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forward;
+  animation-play-state: running;
+}
+
+@keyframes swinging {
+  0% {
+    transform: rotate(-10deg) translate3d(-15px, 0, 0);
+  }
+  100% {
+    transform: rotate(10deg) translate3d(15px, 0, 0);
+  }
+}
+@keyframes click {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }/*# sourceMappingURL=style.css.map */

@@ -1,12 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
   let bar = document.getElementById("bar");
+  let mouse = document.querySelector(".mouse");
   let hiddenTexts = document.getElementsByClassName("hidden");
   let wrapper = document.querySelector(".text-wrapper");
 
   setTimeout(() => {
     gsap.to(bar, { opacity: 1, duration: 2, delay: 3 });
+    gsap.to(mouse, { opacity: 1, duration: 2, delay: 10 });
     gsap.to(wrapper, { opacity: 1, duration: 3 });
-  }, 3000);
+  }, 2000);
   // setTimeout(
   //   () => gsap.to(wrapper, { opacity: 1, duration: 2, delay: 3 }),
   //   3000
@@ -27,11 +29,13 @@ document.addEventListener("DOMContentLoaded", () => {
   function dragElement(elmnt) {
     let dist = 0,
       currentPos = 0;
-
+    bar.style.cursor = "grab";
     elmnt.onmousedown = dragMouseDown;
 
     function dragMouseDown(e) {
       e.preventDefault();
+      bar.style.cursor = "grab";
+
       currentPos = e.clientX;
 
       document.onmouseup = closeDragElement;
@@ -40,6 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function elementDrag(e) {
       e.preventDefault();
+      mouse.style.display = "none";
+      bar.style.cursor = "grabbing";
 
       dist = currentPos - e.clientX;
       currentPos = e.clientX;
@@ -53,6 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function closeDragElement() {
+      bar.style.cursor = "grab";
+
       document.onmouseup = null;
       document.onmousemove = null;
     }
