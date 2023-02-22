@@ -1,68 +1,91 @@
-let nationIcons = document.querySelectorAll(".nation-icon");
-console.log(window);
-for (let i = 0; i < nationIcons.length; i++) {
-  nationIcons[i].style.top = Math.random() * (window.innerHeight - 200);
-  nationIcons[i].style.left = Math.random() * window.innerWidth - 200;
-}
-
-document.addEventListener("mousemove", (e) => {
+document.addEventListener("DOMContentLoaded", () => {
   let bar = document.getElementById("bar");
+  let mouse = document.querySelector(".mouse");
   let hiddenTexts = document.getElementsByClassName("hidden");
-  bar.style.left = e.clientX;
-  bar.style.top = e.clientY;
-  setOpacity(e.clientX, e.clientY);
+  let wrapper = document.querySelector(".coming-soon");
 
-  function setOpacity(offsetL, offsetT) {
+  setTimeout(() => {
+    gsap.to(bar, { opacity: 1, duration: 2, delay: 3 });
+    gsap.to(mouse, { opacity: 1, duration: 2, delay: 10 });
+    gsap.to(wrapper, { opacity: 1, duration: 3 });
+  }, 2000);
+  // setTimeout(
+  //   () => gsap.to(wrapper, { opacity: 1, duration: 2, delay: 3 }),
+  //   3000
+  // );
+
+  setOpacity(0);
+
+  dragElement(bar);
+
+  function setOpacity(offset) {
     for (let i = 0; i < hiddenTexts.length; i++) {
-      let op =
-        2 -
-        (+Math.abs(offsetL - hiddenTexts[i].offsetLeft) / 150 +
-          Math.abs(offsetT - hiddenTexts[i].offsetTop) / 150);
+      let op = 1 - Math.abs(offset - hiddenTexts[i].offsetLeft) / 200;
       hiddenTexts[i].style.opacity = op;
     }
-    // for (let i = 0; i < hiddenTexts.length; i++) {
-    //   let op = 1 - Math.abs(offsetT - hiddenTexts[i].offsetTop) / 300;
-    //   hiddenTexts[i].style.opacity = op;
-    // }
   }
-});
 
-document.addEventListener("touchmove", (e) => {
-  let bar = document.getElementById("bar");
-  let hiddenTexts = document.getElementsByClassName("hidden");
-  bar.style.left = e.clientX;
-  bar.style.top = e.clientY;
-  setOpacity(e.clientX, e.clientY);
+  function dragElement(elmnt) {
+    console.log(elmnt, "elmnt");
+    let dist = 0,
+      currentPos = 0;
+    bar.style.cursor = "grab";
+    elmnt.onmousedown = dragMouseDown;
 
-  function setOpacity(offsetL, offsetT) {
-    for (let i = 0; i < hiddenTexts.length; i++) {
-      let op =
-        2 -
-        (+Math.abs(offsetL - hiddenTexts[i].offsetLeft) / 150 +
-          Math.abs(offsetT - hiddenTexts[i].offsetTop) / 150);
-      hiddenTexts[i].style.opacity = op;
+    function dragMouseDown(e) {
+      e.preventDefault();
+      bar.style.cursor = "grab";
+
+      currentPos = e.clientX;
+
+      document.onmouseup = closeDragElement;
+      document.onmousemove = elementDrag;
     }
-    // for (let i = 0; i < hiddenTexts.length; i++) {
-    //   let op = 1 - Math.abs(offsetT - hiddenTexts[i].offsetTop) / 300;
-    //   hiddenTexts[i].style.opacity = op;
-    // }
+
+    function elementDrag(e) {
+      e.preventDefault();
+      mouse.style.display = "none";
+      bar.style.cursor = "grabbing";
+      dist = currentPos - e.clientX;
+      currentPos = e.clientX;
+      let updatedPos = elmnt.offsetLeft - dist;
+      elmnt.style.left = updatedPos + "px";
+      setOpacity(elmnt.offsetLeft);
+      document.documentElement.style.setProperty("--cursorX", elmnt.style.left);
+    }
+
+    function closeDragElement() {
+      bar.style.cursor = "grab";
+
+      document.onmouseup = null;
+      document.onmousemove = null;
+    }
   }
 });
 
-let textLength = 0;
-let text = " Incoming Transmission from Kiirus being deciphered";
-function type() {
-  let textChar = text.charAt(textLength++);
-  let paragraph = document.querySelector(".heading");
-  let charElement = document.createTextNode(textChar);
-  paragraph.appendChild(charElement);
-  if (textLength < text.length + 1) {
-    setTimeout("type()", 50);
-  } else {
-    text = "";
-  }
-}
+// document.addEventListener("mousemove", (e) => {
+//   let bar = document.getElementById("bar");
+//   let hiddenTexts = document.getElementsByClassName("hidden");
+//   bar.style.left = e.clientX;
+//   bar.style.top = e.clientY;
+//   setOpacity(e.clientX, e.clientY);
 
-document.addEventListener("DOMContentLoaded", function () {
-  type();
-});
+//   function setOpacity(offsetL, offsetT) {
+//     for (let i = 0; i < hiddenTexts.length; i++) {
+//       let op =
+//         2 -
+//         (+Math.abs(offsetL - hiddenTexts[i].offsetLeft) / 200 +
+//           Math.abs(offsetT - hiddenTexts[i].offsetTop) / 200);
+//       hiddenTexts[i].style.opacity = op;
+//       console.log(
+//         2 -
+//           (+Math.abs(offsetL - hiddenTexts[0].offsetLeft) / 200 +
+//             Math.abs(offsetT - hiddenTexts[0].offsetTop) / 200)
+//       );
+//     }
+//     // for (let i = 0; i < hiddenTexts.length; i++) {
+//     //   let op = 1 - Math.abs(offsetT - hiddenTexts[i].offsetTop) / 300;
+//     //   hiddenTexts[i].style.opacity = op;
+//     // }
+//   }
+// });
