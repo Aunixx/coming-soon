@@ -63,29 +63,29 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-document.addEventListener("mousemove", (e) => {
-  let bar = document.getElementById("bar");
-  let hiddenTexts = document.getElementsByClassName("hidden");
-  bar.style.left = e.clientX;
-  bar.style.top = e.clientY;
-  setOpacity(e.clientX, e.clientY);
+// document.addEventListener("mousemove", (e) => {
+//   let bar = document.getElementById("bar");
+//   let hiddenTexts = document.getElementsByClassName("hidden");
+//   bar.style.left = e.clientX;
+//   bar.style.top = e.clientY;
+//   setOpacity(e.clientX, e.clientY);
 
-  function setOpacity(offsetL, offsetT) {
-    for (let i = 0; i < hiddenTexts.length; i++) {
-      let op =
-        2 -
-        (+Math.abs(offsetL - hiddenTexts[i].offsetLeft) / 200 +
-          Math.abs(offsetT - hiddenTexts[i].offsetTop) / 200);
-      hiddenTexts[i].style.opacity = op;
-      console.log(
-        2 -
-          (+Math.abs(offsetL - hiddenTexts[0].offsetLeft) / 200 +
-            Math.abs(offsetT - hiddenTexts[0].offsetTop) / 200)
-      );
-    }
-    // for (let i = 0; i < hiddenTexts.length; i++) {
-    //   let op = 1 - Math.abs(offsetT - hiddenTexts[i].offsetTop) / 300;
-    //   hiddenTexts[i].style.opacity = op;
-    // }
-  }
-});
+//   function setOpacity(offsetL, offsetT) {
+//     for (let i = 0; i < hiddenTexts.length; i++) {
+//       let op =
+//         2 -
+//         (+Math.abs(offsetL - hiddenTexts[i].offsetLeft) / 200 +
+//           Math.abs(offsetT - hiddenTexts[i].offsetTop) / 200);
+//       hiddenTexts[i].style.opacity = op;
+//       console.log(
+//         2 -
+//           (+Math.abs(offsetL - hiddenTexts[0].offsetLeft) / 200 +
+//             Math.abs(offsetT - hiddenTexts[0].offsetTop) / 200)
+//       );
+//     }
+//     // for (let i = 0; i < hiddenTexts.length; i++) {
+//     //   let op = 1 - Math.abs(offsetT - hiddenTexts[i].offsetTop) / 300;
+//     //   hiddenTexts[i].style.opacity = op;
+//     // }
+//   }
+// });
