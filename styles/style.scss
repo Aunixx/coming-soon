@@ -61,6 +61,9 @@ section {
     background-color: black;
     flex-direction: column;
     opacity: 0;
+    .hidden {
+      opacity: 0;
+    }
     span {
       h4 {
         text-transform: uppercase;
@@ -130,9 +133,9 @@ section {
   position: absolute;
   cursor: grab;
   left: 220px;
-  height: 70%;
-  width: 25px;
-  border-radius: 10px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
   background-color: #fefbff;
   box-shadow: $boxShadowBar;
   z-index: 99;

@@ -58,6 +58,9 @@ section .text-wrapper {
   flex-direction: column;
   opacity: 0;
 }
+section .text-wrapper .hidden {
+  opacity: 0;
+}
 section .text-wrapper span h4 {
   text-transform: uppercase;
   font-size: 40px;
@@ -100,9 +103,9 @@ section .text-wrapper p {
   position: absolute;
   cursor: grab;
   left: 220px;
-  height: 70%;
-  width: 25px;
-  border-radius: 10px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
   background-color: #fefbff;
   box-shadow: 0 0 5px #7bacff, 0 0 6px #7bacff, 0 0 7px #7bacff, 0 0 8px #7bacff, 0 0 9px #7bacff, 0 0 10px #7bacff, 0 0 20px #7bacff, 0 0 40px #7bacff, 0 0 320px #7bacff, 0 0 330px #7bacff;
   z-index: 99;

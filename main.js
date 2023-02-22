@@ -20,13 +20,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function setOpacity(offset) {
     for (let i = 0; i < hiddenTexts.length; i++) {
-      let op = 1 - Math.abs(offset - hiddenTexts[i].offsetLeft) / 400;
-      console.log(op);
+      let op = 1 - Math.abs(offset - hiddenTexts[i].offsetLeft) / 200;
       hiddenTexts[i].style.opacity = op;
     }
   }
 
   function dragElement(elmnt) {
+    console.log(elmnt, "elmnt");
     let dist = 0,
       currentPos = 0;
     bar.style.cursor = "grab";
@@ -46,15 +46,11 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       mouse.style.display = "none";
       bar.style.cursor = "grabbing";
-
       dist = currentPos - e.clientX;
       currentPos = e.clientX;
-
       let updatedPos = elmnt.offsetLeft - dist;
       elmnt.style.left = updatedPos + "px";
-
       setOpacity(elmnt.offsetLeft);
-
       document.documentElement.style.setProperty("--cursorX", elmnt.style.left);
     }
 
@@ -64,5 +60,32 @@ document.addEventListener("DOMContentLoaded", () => {
       document.onmouseup = null;
       document.onmousemove = null;
     }
+  }
+});
+
+document.addEventListener("mousemove", (e) => {
+  let bar = document.getElementById("bar");
+  let hiddenTexts = document.getElementsByClassName("hidden");
+  bar.style.left = e.clientX;
+  bar.style.top = e.clientY;
+  setOpacity(e.clientX, e.clientY);
+
+  function setOpacity(offsetL, offsetT) {
+    for (let i = 0; i < hiddenTexts.length; i++) {
+      let op =
+        2 -
+        (+Math.abs(offsetL - hiddenTexts[i].offsetLeft) / 200 +
+          Math.abs(offsetT - hiddenTexts[i].offsetTop) / 200);
+      hiddenTexts[i].style.opacity = op;
+      console.log(
+        2 -
+          (+Math.abs(offsetL - hiddenTexts[0].offsetLeft) / 200 +
+            Math.abs(offsetT - hiddenTexts[0].offsetTop) / 200)
+      );
+    }
+    // for (let i = 0; i < hiddenTexts.length; i++) {
+    //   let op = 1 - Math.abs(offsetT - hiddenTexts[i].offsetTop) / 300;
+    //   hiddenTexts[i].style.opacity = op;
+    // }
   }
 });
