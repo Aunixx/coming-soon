@@ -98,6 +98,10 @@ section .text-wrapper {
   background-color: #020007;
   flex-direction: column;
 }
+section .text-wrapper video {
+  max-width: 500px;
+  width: 100%;
+}
 section .text-wrapper .icons-wrapper {
   display: flex;
   align-items: center;
@@ -117,6 +121,11 @@ section .text-wrapper p {
   font-size: 20px;
   opacity: 0.7;
   padding: 40px 0px;
+}
+
+.something-text {
+  font-size: 24px;
+  margin-top: 12px;
 }
 
 .overlay {
@@ -277,7 +286,7 @@ section .text-wrapper p {
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: 80%;
+  height: 90%;
 }
 .coming-soon .container .main .logo {
   width: 268px;
@@ -326,8 +335,8 @@ section .text-wrapper p {
 .coming-soon .container .main .newsletter {
   position: relative;
   max-width: 500px;
-  margin-top: 46px;
-  width: 100%;
+  margin-top: 12px;
+  width: 90%;
 }
 .coming-soon .container .main .newsletter .email-input {
   font-weight: 400;
@@ -337,7 +346,7 @@ section .text-wrapper p {
   padding: 12px 24px;
   width: 100%;
   background: #2a2f38;
-  border-radius: 4px;
+  border-radius: 32px;
   border: none;
   outline: none;
 }
@@ -351,7 +360,7 @@ section .text-wrapper p {
   text-align: center;
   color: #ffffff;
   background: #fa0339;
-  border-radius: 4px;
+  border-radius: 32px;
   position: absolute;
   right: 8px;
   top: 50%;
@@ -509,15 +518,9 @@ section .text-wrapper p {
 }
 
 .top-wrapper {
-  max-width: 120px;
-  position: absolute;
-  top: 40px;
-  right: 40px;
+  max-width: 150px;
   display: flex;
   flex-direction: column;
-}
-.top-wrapper .qr-code {
-  border: 1px solid white;
 }
 .top-wrapper .callback-btns {
   display: flex;
@@ -806,4 +809,23 @@ section .text-wrapper p {
 
 .container2 > div.active {
   display: block; /* Show the active div */
+}
+
+@media (max-width: 375px) {
+  .something-text {
+    font-size: 18px;
+  }
+  .email-input {
+    padding: 8px 14px !important;
+  }
+  .email-input::-moz-placeholder {
+    font-size: 14px;
+  }
+  .email-input::placeholder {
+    font-size: 14px;
+  }
+  button.subscribe {
+    font-size: 14px !important;
+    padding: 2px 14px !important;
+  }
 }/*# sourceMappingURL=style.css.map */

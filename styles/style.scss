@@ -115,6 +115,10 @@ section {
     align-items: center;
     background-color: #020007;
     flex-direction: column;
+    video {
+      max-width: 500px;
+      width: 100%;
+    }
     // animation: glitch1 2.5s infinite;
     .icons-wrapper {
       display: flex;
@@ -141,6 +145,10 @@ section {
       padding: 40px 0px;
     }
   }
+}
+.something-text {
+  font-size: 24px;
+  margin-top: 12px;
 }
 
 .overlay {
@@ -335,7 +343,7 @@ section {
       justify-content: center;
       align-items: center;
       text-align: center;
-      height: 80%;
+      height: 90%;
       .logo {
         width: 268px;
       }
@@ -406,8 +414,8 @@ section {
       .newsletter {
         position: relative;
         max-width: 500px;
-        margin-top: 46px;
-        width: 100%;
+        margin-top: 12px;
+        width: 90%;
         .email-input {
           font-weight: 400;
           font-size: 16px;
@@ -416,7 +424,7 @@ section {
           padding: 12px 24px;
           width: 100%;
           background: #2a2f38;
-          border-radius: 4px;
+          border-radius: 32px;
           border: none;
           outline: none;
         }
@@ -430,7 +438,7 @@ section {
           text-align: center;
           color: #ffffff;
           background: #fa0339;
-          border-radius: 4px;
+          border-radius: 32px;
           position: absolute;
           right: 8px;
           top: 50%;
@@ -592,15 +600,10 @@ section {
   align-items: center;
 }
 .top-wrapper {
-  max-width: 120px;
-  position: absolute;
-  top: 40px;
-  right: 40px;
+  max-width: 150px;
   display: flex;
   flex-direction: column;
-  .qr-code {
-    border: 1px solid white;
-  }
+
   .callback-btns {
     display: flex;
     align-items: center;
@@ -1074,4 +1077,20 @@ section {
 }
 .container2 > div.active {
   display: block; /* Show the active div */
+}
+
+@media (max-width: 375px) {
+  .something-text {
+    font-size: 18px;
+  }
+  .email-input {
+    padding: 8px 14px !important;
+    &::placeholder {
+      font-size: 14px;
+    }
+  }
+  button.subscribe {
+    font-size: 14px !important;
+    padding: 2px 14px !important;
+  }
 }
