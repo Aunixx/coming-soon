@@ -803,11 +803,11 @@ section .text-wrapper p {
   mix-blend-mode: lighten;
 }
 
-.container2 > div {
+.top-wrapper > img {
   display: none; /* Hide all divs by default */
 }
 
-.container2 > div.active {
+.top-wrapper > img.active {
   display: block; /* Show the active div */
 }
 

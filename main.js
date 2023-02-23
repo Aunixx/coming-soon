@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //   () => gsap.to(wrapper, { opacity: 1, duration: 2, delay: 3 }),
   //   3000
   // );
-  const container = document.querySelector(".container2");
+  const container = document.querySelector(".top-wrapper");
   const divs = Array.from(container.children);
 
   let currentDivIndex = 0;
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   divs[currentDivIndex].classList.add("active");
 
-  setInterval(showDiv, 10000);
+  setInterval(showDiv, 8000);
   setOpacity(0);
 
   dragElement(bar);
