@@ -13,24 +13,24 @@ document.addEventListener("DOMContentLoaded", () => {
   //   () => gsap.to(wrapper, { opacity: 1, duration: 2, delay: 3 }),
   //   3000
   // );
-  const container = document.querySelector(".container2");
-  const divs = Array.from(container.children);
+  // const container = document.querySelector(".container2");
+  // const divs = Array.from(container.children);
 
-  let currentDivIndex = 0;
+  // let currentDivIndex = 0;
 
-  function showDiv() {
-    const nextDivIndex = (currentDivIndex + 1) % divs.length;
+  // function showDiv() {
+  //   const nextDivIndex = (currentDivIndex + 1) % divs.length;
 
-    divs[currentDivIndex].classList.remove("active");
+  //   divs[currentDivIndex].classList.remove("active");
 
-    divs[nextDivIndex].classList.add("active");
+  //   divs[nextDivIndex].classList.add("active");
 
-    currentDivIndex = nextDivIndex;
-  }
+  //   currentDivIndex = nextDivIndex;
+  // }
 
-  divs[currentDivIndex].classList.add("active");
+  // divs[currentDivIndex].classList.add("active");
 
-  setInterval(showDiv, 10000);
+  // setInterval(showDiv, 10000);
   setOpacity(0);
 
   dragElement(bar);
