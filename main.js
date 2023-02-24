@@ -24,3 +24,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setInterval(showDiv, 8000);
 });
+
+document.querySelector("video").play();
