@@ -1,6 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   let wrapper = document.querySelector(".coming-soon");
 
+  let video = document.querySelector("video");
+  video.muted = true;
+  video.play();
+
+  console.log(video);
+
   setTimeout(() => {
     gsap.to(wrapper, { opacity: 1, duration: 3 });
   }, 2000);
@@ -24,5 +30,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setInterval(showDiv, 8000);
 });
-
-document.querySelector("video").play();
