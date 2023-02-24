@@ -6,13 +6,13 @@ $boxShadowBar: 0 0 5px #7bacff, 0 0 6px #7bacff, 0 0 7px #7bacff,
   0 0 40px #7bacff, 0 0 320px #7bacff, 0 0 330px #7bacff;
 
 html {
-  font-family: "Magistral";
+  font-family: var(--Magistral-Book);
 }
 
 * {
   margin: 0;
   padding: 0;
-  font-family: "Magistral";
+  font-family: var(--Magistral-Book) !important;
   color: white;
   font-size: 54px;
 }
@@ -26,6 +26,7 @@ body {
   width: 100vw;
   overflow: hidden;
   background-color: #020007;
+  font-family: var(--Magistral-Book) !important;
 }
 
 nav {
